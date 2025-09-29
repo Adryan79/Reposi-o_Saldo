@@ -1,1 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VT PASSA FÁCILReposição de Saldos</title>
+    <link rel="stylesheet"  href="{{ url_for('static', filename='style.css') }}">
+    </head>
+<body>
+    <div class="main-container">
+        <nav class="sidebar">
+            <div class="logo">Lançamento de Saldos</div>
+            <ul class="nav-links">
+                <li><button class="nav-btn" data-target="kronos-content">Kronos</button></li>
+                <li><button class="nav-btn" data-target="sales-content">Sales</button></li>
+            </ul>
+        </nav>
 
+        <main class="content-area">
+            <div id="intro-content" class="dynamic-content active">
+                <h2>Selecione uma opção ao lado</h2>
+                <p>Clique em Kronos ou Sales para iniciar a reposição de saldos.</p>
+            </div>
+
+            <div class="action-bar hidden" id="kronos-action-bar">
+                <button class="lancar-btn">Lançar Reposição Kronos</button>
+            </div>
+            <div class="action-bar hidden" id="sales-action-bar">
+                <button class="lancar-btn">Lançar Reposição Sales</button>
+            </div>
+            
+            <div id="kronos-content" class="dynamic-content">
+                <h2>Reposição de Saldos - Kronos</h2>
+                <div class="upload-box">
+                    <div id="kronos-drop-zone" class="drop-zone">
+                        <p>Arraste e solte o arquivo **Base.xlsx** aqui</p>
+                        <p class="small-text">ou</p>
+                        <input type="file" id="kronos-file-input" accept=".xlsx, .xls, .csv">
+                        <label for="kronos-file-input" class="file-label">Clique para selecionar o arquivo</label>
+                    </div>
+                </div>
+                <div id="kronos-data-display" class="data-display hidden">
+                    <h3>Dados do Arquivo Kronos:</h3>
+                    <div class="loading-message hidden">
+                        <div class="spinner"></div>
+                        <p>Carregando dados...</p>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr></tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="sales-content" class="dynamic-content">
+                <h2>Reposição de Saldos - Sales</h2>
+                <div class="upload-box">
+                    <div id="sales-drop-zone" class="drop-zone">
+                        <p>Arraste e solte o arquivo **Sales.xlsx** aqui</p>
+                        <p class="small-text">ou</p>
+                        <input type="file" id="sales-file-input" accept=".xlsx, .xls, .csv">
+                        <label for="sales-file-input" class="file-label">Clique para selecionar o arquivo</label>
+                    </div>
+                </div>
+                <div id="sales-data-display" class="data-display hidden">
+                    <h3>Dados do Arquivo Sales:</h3>
+                    <div class="loading-message hidden">
+                        <div class="spinner"></div>
+                        <p>Carregando dados...</p>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr></tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script></body>
+</html>
